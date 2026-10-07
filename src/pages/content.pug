@@ -1,0 +1,271 @@
+.main-wrapper
+  //- Ліва бічна панель
+  aside.sidebar
+    .project-card
+      .card-header-row
+        span.badge-sub ПОТОЧНИЙ ПРОЄКТ
+        button.dots-btn
+          i.bi.bi-three-dots
+      h2.project-title Назва проєкту
+      hr.card-divider
+      .manager-row
+        span.manager-label Менеджер
+        .manager-person
+          img.avatar-sm(src="/src/img/p1.jpg" alt="Ірина Коваль")
+          span.manager-name Ірина Коваль
+
+    .sidebar-section-title ДОКУМЕНТАЦІЯ
+    ul.doc-list-plain
+      li.doc-item
+        i.bi.bi-file-earmark-text
+        span Паспорт проєкту
+      li.doc-item
+        i.bi.bi-book
+        span Технічне завдання
+      li.doc-item
+        i.bi.bi-calendar-event
+        span План-графік
+
+    .sidebar-section-title ЕТАПИ ПРОЄКТУ
+    .phases-card
+      .phase-item
+        .phase-header
+          span.phase-name Аналітика
+          span.phase-pct 100%
+        .progress-track
+          .progress-bar(style="width: 100%")
+
+      .phase-item
+        .phase-header
+          span.phase-name Розробка
+          span.phase-pct 68%
+        .progress-track
+          .progress-bar(style="width: 68%")
+
+      .phase-item
+        .phase-header
+          span.phase-name Тестування
+          span.phase-pct 24%
+        .progress-track
+          .progress-bar(style="width: 24%")
+
+    .total-progress-box
+      .tp-row
+        span.tp-title Загальний прогрес
+        span.tp-stat 142 / 180 год
+      .progress-track
+        .progress-bar(style="width: 78%")
+      span.tp-hint Залишилось 38 годин до п'ятниці
+
+  //- дошка завдань
+  section.board-area
+    .board-header
+      .board-header-left
+        span.sprint-tag РОЗРОБКА • СПРИНТ 1
+        h2.board-title Дошка завдань
+      .board-header-right
+        button.btn-circle
+          i.bi.bi-star
+        button.btn-circle
+          i.bi.bi-sliders
+        button.btn-create ＋ Створити
+
+    .board-toolbar
+      .toolbar-left
+        span.badge-deadline Дедлайн: 15 листопада
+        span.sprint-count 6 завдань у спринті
+      button.btn-filter
+        i.bi.bi-funnel
+        span Фільтри
+
+    .kanban-grid
+      //- Колонка: До виконання
+      .column
+        .column-header
+          .col-name-wrap
+            span.status-circle.dot-gray ●
+            span До виконання
+          i.bi.bi-three-dots-vertical
+        
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p2.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p3.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p4.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+      //- Колонка: В процесі
+      .column
+        .column-header
+          .col-name-wrap
+            span.status-circle.dot-blue ●
+            span В процесі
+          i.bi.bi-three-dots-vertical
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p4.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p2.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+      //- Колонка: На перевірці
+      .column
+        .column-header
+          .col-name-wrap
+            span.status-circle.dot-orange ●
+            span На перевірці
+          i.bi.bi-three-dots-vertical
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-three-dots
+          h4.task-title Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p5.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+      //- Колонка: Виконано
+      .column.column-done
+        .column-header
+          .col-name-wrap
+            span.status-circle.dot-green ●
+            span Виконано
+          i.bi.bi-three-dots-vertical
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-check2.check-done
+          h4.task-title.completed Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p5_2.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+        .task-card
+          .card-top
+            span.task-tag #TASK-XXX
+            i.bi.bi-check2.check-done
+          h4.task-title.completed Опис завдання
+          p.task-desc Детальний опис завдання
+          .card-bottom
+            img.user-pic(src="/src/img/p6.jpg" alt="Виконавець")
+            span.card-date DD.MM.YY
+
+    //- Нижня панель кнопок усередині дошки
+    .board-bottom-bar
+      .bottom-nav-left
+        a.tab-item(href="#")
+          i.bi.bi-inbox
+          span Вхідні
+        a.tab-item(href="#")
+          i.bi.bi-calendar3
+          span Календар
+        a.tab-item(href="#")
+          i.bi.bi-stack
+          span Всі дошки
+      .bottom-nav-right
+        a.tab-item.active(href="#")
+          i.bi.bi-kanban
+          span Дошка
+
+  //- Права колонка
+  .right-column
+    aside.details-panel
+      .details-top-bar
+        .details-titles
+          span.task-code ЗАВДАННЯ DS-238
+          h2.details-heading Деталі, ТЗ та облік часу
+        button.btn-close-panel
+          i.bi.bi-x-lg
+
+      .status-card-block
+        span.field-tag СТАТУС
+        .status-dropdown
+          span В процесі
+          i.bi.bi-chevron-down
+
+        .time-stats-grid
+          .stat-card-item
+            span.stat-label Оцінка
+            span.stat-value 16 год
+          .stat-card-item
+            span.stat-label Залишилось
+            span.stat-value 8 год
+
+      .panel-section
+        h3.panel-section-title Опис і вимоги
+        p.req-description На основі ТЗ, пункт 3.2, реалізувати механіку перетягування карток між колонками та збереження нового статусу.
+        .attachment-chip
+          i.bi.bi-paperclip
+          span T3_DevSolve_v2.pdf
+
+      hr.panel-divider
+
+      .panel-section
+        h3.panel-section-title Внести години
+        .hours-inputs-row
+          .input-group
+            label.input-label Дата
+            input.theme-input(type="text" value="11.11.2026")
+          .input-group
+            label.input-label Години
+            input.theme-input(type="text" value="4")
+        span.hint-limit Максимум 10 годин на день
+        button.btn-submit-log Зберегти години в журнал
+
+      hr.panel-divider
+
+      .panel-section
+        .history-header-row
+          span.panel-section-title Історія
+          a.history-link(href="#") Уся історія
+        .history-entry-card
+          .history-entry-top
+            i.bi.bi-clock.history-clock-icon
+            strong.history-hours 5 жовтня • 8 год
+          hr.history-inner-divider
+          p.history-user Додано Андрієм Левченком
+
+    .status-capsule
+      span Документація API • Стабільність 99.8% • 
+      span.status-online ● Онлайн

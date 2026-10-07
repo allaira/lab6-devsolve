@@ -1,0 +1,669 @@
+$c-1: #141214;
+$c-2: #302F33;
+$c-3: #464C55;
+$c-4: #636D79;
+$c-5: #C2C7CF;
+$c-white: #FFFFFF;
+
+$w-sidebar: 320px;
+$w-details: 420px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: $c-1;
+  color: $c-5;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+// Банер
+.cookie-banner {
+  background-color: $c-1;
+  border-bottom: 1px solid $c-4;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+
+  .cookie-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $c-5;
+    .cookie-icon { font-size: 16px; }
+    .cookie-link { color: $c-white; text-decoration: underline; }
+  }
+
+  .cookie-actions {
+    display: flex;
+    gap: 10px;
+    button {
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-cookie-outline {
+      background: $c-3;
+      border: 1px solid $c-4;
+      color: $c-white;
+    }
+    .btn-cookie-dark {
+      background: $c-2;
+      border: 1px solid $c-4;
+      color: $c-white;
+    }
+  }
+}
+
+.top-header {
+  background-color: $c-1;
+  border-bottom: 1px solid $c-4;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .brand-logo { color: $c-white; font-size: 24px; }
+      .brand-name { font-size: 19px; font-weight: 700; color: $c-white; }
+      .brand-desc { font-size: 12px; color: $c-5; display: block; }
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 8px;
+
+      .nav-item {
+        background: transparent;
+        border: 1px solid transparent;
+        color: $c-5;
+        padding: 8px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &.active, &:hover {
+          background-color: $c-2;
+          border-color: $c-4;
+          color: $c-white;
+        }
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .search-box {
+      background: $c-5;
+      border: 1px solid $c-4;
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $c-1;
+
+      i { color: $c-1; font-weight: bold; }
+
+      input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: $c-1;
+        font-size: 14px;
+        font-weight: 500;
+        width: 210px;
+        &::placeholder { color: #555861; }
+      }
+    }
+
+    .btn-icon {
+      background: $c-5;
+      border: 1px solid $c-4;
+      color: $c-1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .user-pill {
+      background: $c-2;
+      border: 1px solid $c-4;
+      padding: 6px 14px 6px 8px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+
+      .user-avatar-circle {
+        background: $c-3;
+        color: $c-white;
+        font-weight: bold;
+        font-size: 12px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .user-fullname { font-size: 13px; color: $c-white; font-weight: 500; }
+      i { font-size: 11px; color: $c-5; }
+    }
+  }
+}
+
+.main-wrapper {
+  display: grid;
+  grid-template-columns: $w-sidebar 1fr $w-details;
+  gap: 18px;
+  padding: 18px 24px;
+  min-height: calc(100vh - 110px);
+}
+
+.badge-sub { font-size: 11px; font-weight: 700; color: $c-5; letter-spacing: 0.5px; }
+.dots-btn { background: none; border: none; color: $c-5; cursor: pointer; font-size: 16px; }
+
+.progress-track {
+  background: $c-3;
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 7px 0;
+  .progress-bar { background: $c-white; height: 100%; border-radius: 4px; }
+}
+
+// Ліва панель
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  .project-card {
+    background: $c-2;
+    border: 1px solid $c-4;
+    border-radius: 14px;
+    padding: 18px;
+
+    .card-header-row { display: flex; justify-content: space-between; align-items: center; }
+    .project-title { font-size: 18px; color: $c-white; margin: 8px 0 14px; font-weight: 700; }
+    .card-divider { border: 0; height: 1px; background: $c-4; margin-bottom: 12px; }
+    .manager-row {
+      .manager-label { font-size: 11px; color: $c-5; display: block; margin-bottom: 6px; }
+      .manager-person { display: flex; align-items: center; gap: 10px; }
+      .avatar-sm { width: 28px; height: 28px; border-radius: 50%; background: $c-3; }
+      .manager-name { font-size: 13px; color: $c-white; font-weight: 500; }
+    }
+  }
+
+  .sidebar-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: $c-5;
+    letter-spacing: 0.6px;
+    margin-top: 6px;
+    padding-left: 2px;
+  }
+
+  .doc-list-plain {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 4px 6px;
+
+    .doc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: $c-5;
+      cursor: pointer;
+      i { font-size: 16px; color: $c-5; }
+      &:hover {
+        color: $c-white;
+        i { color: $c-white; }
+      }
+    }
+  }
+
+  .phases-card {
+    background: $c-2;
+    border: 1px solid $c-4;
+    border-radius: 14px;
+    padding: 18px;
+
+    .phase-item {
+      margin-bottom: 14px;
+      &:last-child { margin-bottom: 0; }
+      .phase-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: $c-white;
+        font-weight: 500;
+      }
+      .phase-pct { font-size: 12px; color: $c-5; }
+    }
+  }
+
+  .total-progress-box {
+    background: $c-2;
+    border: 1px solid $c-4;
+    border-radius: 14px;
+    padding: 18px;
+
+    .tp-row { display: flex; justify-content: space-between; font-size: 14px; color: $c-white; font-weight: 600; }
+    .tp-stat { font-size: 12px; color: $c-5; }
+    .tp-hint { display: block; font-size: 12px; color: $c-5; margin-top: 6px; }
+  }
+}
+
+// Дошка
+.board-area {
+  background: $c-2;
+  border: 1px solid $c-4;
+  border-radius: 14px;
+  padding: 18px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  .board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .sprint-tag { font-size: 12px; color: $c-5; font-weight: 600; }
+    .board-title { font-size: 24px; color: $c-white; font-weight: 700; }
+
+    .board-header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      .btn-circle {
+        background: $c-3;
+        border: 1px solid $c-4;
+        color: $c-white;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-create {
+        background: $c-3;
+        border: 1px solid $c-4;
+        color: $c-white;
+        padding: 9px 20px;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .board-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .badge-deadline {
+        background: $c-3;
+        border: 1px solid $c-4;
+        padding: 5px 14px;
+        border-radius: 14px;
+        font-size: 12px;
+        color: $c-white;
+      }
+      .sprint-count { font-size: 12px; color: $c-5; }
+    }
+
+    .btn-filter {
+      background: $c-3;
+      border: 1px solid $c-4;
+      color: $c-5;
+      padding: 6px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .kanban-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    flex: 1;
+
+    .column {
+      background: $c-1;
+      border: 1px solid $c-4;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .column-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $c-white;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+
+        .col-name-wrap {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          .status-circle { font-size: 10px; color: $c-5; }
+        }
+        i { color: $c-5; cursor: pointer; }
+      }
+
+      .task-card {
+        background: $c-2;
+        border: 1px solid $c-4;
+        border-radius: 10px;
+        padding: 14px;
+
+        .card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+
+          .task-tag {
+            font-size: 11px;
+            font-weight: 700;
+            background: $c-3;
+            border: 1px solid $c-4;
+            padding: 3px 7px;
+            border-radius: 4px;
+            color: $c-white;
+          }
+          i { color: $c-5; font-size: 14px; cursor: pointer; }
+        }
+
+        .task-title {
+          font-size: 14px;
+          color: $c-white;
+          font-weight: 600;
+          margin-bottom: 4px;
+        }
+
+        .task-desc { font-size: 12px; color: $c-5; margin-bottom: 12px; }
+
+        .card-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .user-pic { width: 24px; height: 24px; border-radius: 50%; background: $c-3; }
+          .card-date { font-size: 11px; color: $c-5; }
+        }
+      }
+
+      &.column-done {
+        .task-card {
+          background: $c-3;
+          border-color: $c-4;
+          opacity: 0.8;
+
+          .task-title.completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+          }
+          .check-done { color: $c-white; font-weight: bold; font-size: 15px; }
+        }
+      }
+    }
+  }
+
+  .board-bottom-bar {
+    border-top: 1px solid $c-4;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .bottom-nav-left {
+      display: flex;
+      gap: 24px;
+    }
+
+    .tab-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: $c-5;
+      font-size: 13px;
+
+      &.active, &:hover {
+        color: $c-white;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Права колонка
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.details-panel {
+  background: $c-2;
+  border: 1px solid $c-4;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+
+  .details-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .task-code { font-size: 11px; font-weight: 700; color: $c-5; display: block; margin-bottom: 4px; }
+    .details-heading { font-size: 20px; color: $c-white; font-weight: 700; }
+
+    .btn-close-panel {
+      background: $c-3;
+      border: 1px solid $c-4;
+      color: $c-white;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+  }
+
+  // Єдиний блок-картка статусу
+  .status-card-block {
+    background: $c-1;
+    border: 1px solid $c-4;
+    border-radius: 12px;
+    padding: 16px;
+
+    .field-tag { display: block; font-size: 11px; font-weight: 700; color: $c-5; margin-bottom: 8px; }
+
+    .status-dropdown {
+      background: $c-2;
+      border: 1px solid $c-4;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      color: $c-white;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    .time-stats-grid {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 4px;
+
+      .stat-card-item {
+        .stat-label { font-size: 11px; color: $c-5; display: block; }
+        .stat-value { font-size: 18px; font-weight: 700; color: $c-white; margin-top: 3px; display: block; }
+      }
+    }
+  }
+
+  .panel-section {
+    .panel-section-title {
+      font-size: 14px;
+      color: $c-white;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .req-description { font-size: 13px; color: $c-5; line-height: 1.5; margin-bottom: 12px; }
+
+    .attachment-chip {
+      background: $c-3;
+      border: 1px solid $c-4;
+      padding: 9px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: $c-white;
+      cursor: pointer;
+    }
+
+    .hours-inputs-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+
+      .input-group {
+        flex: 1;
+        .input-label { font-size: 11px; color: $c-5; display: block; margin-bottom: 4px; }
+        .theme-input {
+          width: 100%;
+          background: $c-3;
+          border: 1px solid $c-4;
+          border-radius: 8px;
+          padding: 10px 12px;
+          color: $c-white;
+          font-size: 14px;
+          outline: none;
+        }
+      }
+    }
+
+    .hint-limit { display: block; font-size: 11px; color: $c-5; margin: 4px 0 12px; }
+
+    .btn-submit-log {
+      width: 100%;
+      background: $c-5;
+      color: $c-1;
+      border: 1px solid $c-4;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      &:hover { background: $c-white; }
+    }
+
+    .history-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .panel-section-title { margin-bottom: 0; }
+      .history-link { font-size: 12px; color: $c-5; text-decoration: none; }
+    }
+
+    .history-entry-card {
+      background: $c-1;
+      border: 1px solid $c-4;
+      border-radius: 10px;
+      padding: 12px 14px;
+
+      .history-entry-top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .history-clock-icon { font-size: 15px; color: $c-5; }
+        .history-hours { font-size: 13px; color: $c-white; }
+      }
+
+      .history-inner-divider { border: 0; height: 1px; background: $c-4; margin: 8px 0; }
+      .history-user { font-size: 11px; color: $c-5; }
+    }
+  }
+
+  .panel-divider { border: 0; height: 1px; background: $c-4; margin: 2px 0; }
+}
+
+.status-capsule {
+  background: $c-1;
+  border: 1px solid $c-4;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-size: 12px;
+  color: $c-5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  .status-online { color: $c-white; font-weight: 600; }
+}
