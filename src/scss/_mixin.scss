@@ -1,0 +1,42 @@
+$c-1: #141214;
+$c-2: #302F33;
+$c-3: #464C55;
+$c-4: #636D79;
+$c-5: #C2C7CF;
+$c-white: #FFFFFF;
+
+$w-sidebar: 320px;
+$w-details: 420px;
+
+// вирівнювання Flexbox
+@mixin flex-box($justify: space-between, $align: center, $gap: 0px, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-direction: $direction;
+}
+
+// Оформлення контейнерів та карток ІС
+@mixin card-box($bg: $c-2, $radius: 14px, $padding: 18px) {
+  background-color: $bg;
+  border: 1px solid $c-4;
+  border-radius: $radius;
+  padding: $padding;
+}
+
+//Стилізація інтерактивних кнопок з ефектом наведення
+@mixin button-style($bg: $c-3, $color: $c-white, $radius: 8px, $py: 8px, $px: 16px) {
+  background-color: $bg;
+  color: $color;
+  border: 1px solid $c-4;
+  border-radius: $radius;
+  padding: $py $px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $c-2;
+    color: $c-white;
+  }
+}

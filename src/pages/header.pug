@@ -1,4 +1,11 @@
-//-Cookie
+-
+  var navItems = [
+    { name: "Проєкти", icon: "bi-check2-square", active: true },
+    { name: "Команда", icon: "bi-people", active: false },
+    { name: "Звіти", icon: "bi-file-earmark-text", active: false }
+  ]
+
+//- Cookie
 .cookie-banner
   .cookie-left
     i.bi.bi-cookie.cookie-icon
@@ -8,7 +15,7 @@
     button.btn-cookie-outline Параметри
     button.btn-cookie-dark Згодитися
 
-//- верхня шапка
+//- Верхня шапка з генерацією меню через цикл each
 header.top-header
   .header-left
     .brand
@@ -18,15 +25,10 @@ header.top-header
         h1.brand-name DevSolve
         span.brand-desc Робочий простір команди
     nav.nav-menu
-      button.nav-item.active
-        i.bi.bi-check2-square
-        span Проєкти
-      button.nav-item
-        i.bi.bi-people
-        span Команда
-      button.nav-item
-        i.bi.bi-file-earmark-text
-        span Звіти
+      each item in navItems
+        button.nav-item(class=item.active ? "active" : "")
+          i.bi(class=item.icon)
+          span= item.name
 
   .header-right
     .search-box
@@ -35,6 +37,6 @@ header.top-header
     button.btn-icon
       i.bi.bi-bell
     .user-pill
-      img.user-avatar-circle(src="/src/img/p1.jpg" alt="Ірина Коваль")
+      img.user-avatar-circle(src="/p1.jpg" alt="Ірина Коваль")
       span.user-fullname Ірина Коваль
       i.bi.bi-chevron-down
